@@ -319,7 +319,7 @@ class EditUserPage(AddUserPage):
         "CURRENT_PASSWORD_REQUIRED": "Current password can't be blank",
         "CURRENT_PASSWORD_INVALID": "Current password is invalid"
     }
-    
+
     # Add edit-specific fields
     FIELDS = {
         **AddUserPage.FIELDS,  # Inherit fields from AddUserPage
@@ -332,6 +332,36 @@ class EditUserPage(AddUserPage):
             "PLACEHOLDER": "Enter New Password"
         }
     }
+
+class AreasPage:
+    TITLE = "Areas"
+    TABLE_HEADERS = ["Area Name", "Sort Order", "Status", "Action"]
+    
+    SORT_OPTIONS = {
+        "NAME_ASC": "name asc",
+        "NAME_DESC": "name desc",
+    }
+    
+    STATUS = {
+        "ACTIVE": "Active",
+        "INACTIVE": "Inactive"
+    }
+    
+    URLS = {
+        "LIST": "/admin/areas",
+    }
+    
+    MESSAGES = {
+        "CREATED": "Area was successfully created",
+        "UPDATED": "Area was successfully updated",
+        "DELETED": "Area was successfully deleted"
+    }
+    
+    class TableColumns:
+        NAME = "1"
+        SORT_ORDER = "2"
+        STATUS = "3"
+        ACTION = "4"
 
     # URLs for edit page
     URLS = {
